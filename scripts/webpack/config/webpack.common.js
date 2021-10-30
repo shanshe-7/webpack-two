@@ -1,25 +1,12 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { HotModuleReplacementPlugin } = require("webpack");
 
-const {
-  BUILD_DIRECTORY,
-  PROJECT_ROOT,
-  SOURCE_DIRECTORY,
-} = require("./constants");
-
-const cleanOptions = {
-  root: PROJECT_ROOT,
-  verbose: true,
-  cleanAfterEveryBuildPatterns: BUILD_DIRECTORY,
-};
+const { BUILD_DIRECTORY, SOURCE_DIRECTORY } = require("../constants");
 
 module.exports = () => {
   return {
     stats: "errors-only",
     mode: "none",
-    devtool: false,
     entry: SOURCE_DIRECTORY,
     output: {
       path: BUILD_DIRECTORY,
@@ -30,15 +17,17 @@ module.exports = () => {
         template: "./static/template.html",
         title: "Webpack",
       }),
-      new CleanWebpackPlugin(cleanOptions),
       new MiniCssExtractPlugin(),
-      new HotModuleReplacementPlugin(),
     ],
     module: {
       rules: [
         {
-          test: /\.css$/i,
+          test: /\.css$/,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.js$/,
+          use: { loader: "babel-loader" },
         },
       ],
     },

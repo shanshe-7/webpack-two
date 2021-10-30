@@ -1,8 +1,8 @@
 const chalk = require("chalk");
 
 const webpack = require("webpack");
-const getConfig = require("./webpack.config");
-const compiler = webpack(getConfig());
+const getProdConfig = require("./config/webpack.prod");
+const compiler = webpack(getProdConfig());
 
 compiler.hooks.beforeRun.tap({ name: "start" }, () => {
   console.log("started");

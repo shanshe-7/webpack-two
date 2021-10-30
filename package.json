@@ -9,7 +9,10 @@
     "serve": "serve \"./build\" -s "
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
     "app-root-path": "^3.0.0",
+    "babel-loader": "^8.2.3",
     "chalk": "^4.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.0",
@@ -21,6 +24,7 @@
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1",
-    "webpack-hot-middleware": "^2.25.1"
+    "webpack-hot-middleware": "^2.25.1",
+    "webpack-merge": "^5.8.0"
   }
 }

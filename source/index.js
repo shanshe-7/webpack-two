@@ -1,6 +1,7 @@
-import component from "./components/dom";
-import "./theme/main.css";
+// import component from "./components/dom";
+// import "./theme/main.css";
 
-const el = component();
+// const el = component();
 
-document.body.appendChild(el);
+// document.body.appendChild(el);
+import "../source/components/javascript";

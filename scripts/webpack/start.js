@@ -5,8 +5,8 @@ const hot = require("webpack-hot-middleware");
 const { HOST, PORT } = require("./constants");
 
 const webpack = require("webpack");
-const getConfig = require("./webpack.config");
-const compiler = webpack(getConfig());
+const getDevConfig = require("./config/webpack.dev");
+const compiler = webpack(getDevConfig());
 
 const devServerOptions = {
   port: PORT,
